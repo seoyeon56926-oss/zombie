@@ -309,7 +309,7 @@ html, body {
 
 .nav-logo {
   color: var(--accent-red);
-  font-weight: bold;
+  font-weight: medium;
 }
 
 .nav-links {

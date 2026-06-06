@@ -353,9 +353,9 @@ html, body {
 
 .hero-title-main {
   font-size: clamp(4.5rem, 9vw, 9.5rem);
-  font-weight: 800;
+  font-weight: 750;
   line-height: 0.95;
-  letter-spacing: -3px;
+  letter-spacing: 3px;
   font-family: var(--font-serif);
   position: relative;
   text-shadow: 2px 2px 0 var(--bg-primary), 4px 4px 0 rgba(0,0,0,0.8);

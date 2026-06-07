@@ -593,3 +593,13 @@ window.addEventListener('scroll', () => {
     document.body.style.backgroundColor = '#000000'; 
   }
 });
+// 5초 후 자동으로 인트로가 부드럽게 사라지는 코드
+setTimeout(() => {
+    const intro = document.getElementById('first-intro');
+    if (intro) {
+        intro.style.opacity = '0'; // 5초 뒤에 서서히 투명해짐
+        setTimeout(() => {
+            intro.style.display = 'none'; // 1초 뒤(총 6초 뒤) 완전히 제거
+        }, 1000);
+    }
+}, 5000); // 5초 대기

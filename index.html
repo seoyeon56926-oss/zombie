@@ -489,15 +489,40 @@
     }
 
     // 데이터베이스 구역 (여기에 상세 텍스트가 저장됩니다)
-    const chapterTexts = {
-        chapter1: {
-            num: "CHAPTER 01",
-            title: "좀비의 탄생과 진화",
-            sub: "— 감염병 피플의 문화사",
-            body: `<p>부두교의 제의에 묶인 무력한 좀비에서부터 조지 로메로의 자본주의 비판적 언데드까지, 시대의 억압과 집단적 공포가 어떻게 생물학적 현상으로 구축되어 왔는지 추적합니다.</p>
-                   <p>여기에 실제 세부 서사나 연구 데이터를 채워 넣으시면 사이트 메인 위로 깔끔하게 펼쳐집니다.</p>`
-        }
-    };
+   const chapterTexts = {
+    chapter1: {
+        num: "CHAPTER 01",
+        title: "좀비의 탄생과 진화",
+        sub: "감염병 괴물의 문화사 — 연구 데이터베이스",
+        body: `
+            <div class="modal-archive-wrapper">
+                <div class="modal-visual-zone">
+                    <div class="visual-placeholder">
+                        <span class="matrix-glitch">[ ARCHIVE_VISUAL_SYSTEM : ACTIVE ]</span>
+                        <img src="seoul station.jpg" alt="Zombie Silhouette" class="modal-embedded-img" onerror="this.style.display='none'">
+                        <div class="scanner-line"></div>
+                    </div>
+                </div>
+
+                <div class="modal-deep-content">
+                    <div class="data-meta-box">
+                        <span><strong>CLASSIFICATION:</strong> Cultural Anthropology</span>
+                        <span><strong>THREAT_LEVEL:</strong> HIGH</span>
+                    </div>
+
+                    <h4 class="section-subtitle">1. 아이티 부두교(Voodoo)의 기원과 무력한 좀비</h4>
+                    <p>좀비의 역사적 뿌리는 아프리카 서부에서 카리브해 아이티 섬으로 끌려온 노예들의 고통 속에서 피어난 '부두교' 제의에 묶여 있습니다. 이 시기의 좀비는 주체성을 완전히 상실한 채, 보코르(주술사)의 약물과 주술에 의해 지배당하며 사탕수수밭에서 끝없는 노동을 반복하는 <strong>'무력한 존재'</strong>였습니다. 이는 근대 식민주의 체제와 인간 소외, 그리고 자유를 박탈당한 노예들의 집단적 공포가 투영된 비극적인 형상이었습니다.</p>
+
+                    <h4 class="section-subtitle">2. 조지 로메로와 자본주의 비판적 언데드(Undead)</h4>
+                    <p>1968년, 조지 로메로 감독의 영화 《살아있는 시체들의 밤》을 통해 좀비는 생물학적 메커니즘을 장착한 현대적 괴물로 진화합니다. 더 이상 주술사의 명령을 따르지 않고, 오직 '인간의 살점을 먹으려는 맹목적인 식욕'에 의해 움직이는 군집으로 재정의되었습니다. 특히 《시체들의 새벽》(1978)에서는 백화점이라는 소비의 공간을 배회하는 좀비들을 통해, 이성이 마비된 채 소비에 집착하는 <strong>현대 자본주의 사회의 대중을 강렬하게 비판</strong>하는 문화적 거울로 기능하게 됩니다.</p>
+
+                    <h4 class="section-subtitle">3. 현대 사회의 감염병 패러다임과 생물학적 현상</h4>
+                    <p>21세기의 좀비는 분노 바이러스, 기생충, 인위적 유전자 조작 등 철저히 <strong>'생물학적 현상'</strong>과 <strong>'감염병 패러다임'</strong> 안에서 구축됩니다. 이는 현대인이 직면한 전 지구적 팬데믹의 공포, 통제 불가능한 시스템의 붕괴, 그리고 무차별적인 전염 속에서 무너지는 인간 존엄성에 대한 경고입니다. 군체(Colony) 형태로 움직이는 이 괴물들은, 오늘날 알고리즘 통제 사회와 집단적 히스테리가 어떻게 개인을 잠식하는지 보여주는 가장 날카로운 사유의 도구입니다.</p>
+                </div>
+            </div>
+        `
+    }
+};
 
     function openChapterModal(chapterId) {
         const modal = document.getElementById("chapterModal");

@@ -121,6 +121,8 @@ function initTerminal() {
           
           terminalOverlay.classList.add('fade-out');
           document.getElementById('main-archive').classList.add('active');
+
+          window.scrollTo(0, 0);
           document.body.style.overflow = 'auto';
           
           // Trigger custom entry splash

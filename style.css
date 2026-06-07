@@ -43,14 +43,15 @@ html[data-route="liberation"] {
 }
 
 html, body {
-  width: 100%;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-serif);
-  line-height: 1.6;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-red) var(--bg-secondary);
+    width: 100%;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-red) var(--bg-secondary);
+    transition: background-color 1s ease;
 }
 
 /* Custom Scrollbar */

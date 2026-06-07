@@ -583,3 +583,13 @@ function initScrollNav() {
     });
   }
 }
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  
+  // 스크롤을 500px 이상 내리면 붉은색으로, 아니면 검은색으로
+  if (scrollY > 500) {
+    document.body.style.backgroundColor = '#1a0000'; 
+  } else {
+    document.body.style.backgroundColor = '#000000'; 
+  }
+});

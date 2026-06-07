@@ -399,5 +399,135 @@
 
   <!-- Interactive script link -->
   <script src="app.js"></script>
+  <div id="entryModal" class="gate-modal">
+    <div class="gate-content">
+        <span class="gate-tag">WARNING / ARCHIVE</span>
+        <h2>본 아카이브는 기괴하고 철학적인 사유를 담고 있습니다.</h2>
+        <p>시각적 불편함이나 낯선 텍스트에 민감하신 분들은 주의하시기 바랍니다.<br>당신은 이 기괴한 심연으로 진입하시겠습니까?</p>
+        <button class="gate-btn" onclick="closeEntryModal()">ENTER / 진입</button>
+    </div>
+</div>
+
+<div id="chapterModal" class="detail-modal">
+    <div class="detail-content">
+        <span class="close-txt" onclick="closeChapterModal()">&times; CLOSE</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<style>
+    .gate-modal, .detail-modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 99999;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(3, 3, 3, 0.9);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .gate-modal.active, .detail-modal.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .gate-content {
+        background-color: #000;
+        border: 1px solid #333;
+        padding: 50px 40px;
+        text-align: center;
+        max-width: 550px;
+        width: 90%;
+        box-shadow: 0 0 50px rgba(255, 0, 0, 0.15);
+        transform: scale(0.95);
+        transition: transform 0.4s ease;
+    }
+    .gate-modal.active .gate-content { transform: scale(1); }
+    .gate-tag { color: #ff0000; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; display: block; margin-bottom: 20px; }
+    .gate-content h2 { font-family: serif; color: #fff; font-size: 1.6rem; line-height: 1.4; margin-bottom: 15px; word-break: keep-all; }
+    .gate-content p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 35px; }
+    .gate-btn { background: none; border: 1px solid #ff0000; color: #ff0000; padding: 12px 35px; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; }
+    .gate-btn:hover { background: #ff0000; color: #000; font-weight: bold; box-shadow: 0 0 15px #ff0000; }
+
+    .detail-content {
+        background-color: #0a0a0a;
+        border: 1px solid #222;
+        padding: 50px 40px;
+        width: 85%;
+        max-width: 750px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        transform: translateY(30px);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .detail-modal.active .detail-content { transform: translateY(0); }
+    .close-txt { position: absolute; top: 30px; right: 40px; color: #555; font-size: 0.85rem; letter-spacing: 1px; cursor: pointer; transition: color 0.2s; }
+    .close-txt:hover { color: #ff0000; }
+
+    .modal-hdr { margin-bottom: 35px; }
+    .modal-hdr span { color: #ff0000; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; }
+    .modal-hdr h2 { font-family: serif; font-size: 2.2rem; color: #fff; margin: 10px 0 5px 0; font-weight: normal; }
+    .modal-body { color: #bbb; line-height: 1.9; font-size: 1.05rem; }
+    .modal-body p { margin-bottom: 20px; }
+</style>
+
+<script>
+    // 페이지 접속 시 진입 경고 모달 실행
+    document.addEventListener("DOMContentLoaded", function() {
+        const entryModal = document.getElementById("entryModal");
+        setTimeout(() => { entryModal.classList.add("active"); }, 100);
+    });
+
+    function closeEntryModal() {
+        document.getElementById("entryModal").classList.remove("active");
+    }
+
+    // 데이터베이스 구역 (여기에 상세 텍스트가 저장됩니다)
+    const chapterTexts = {
+        chapter1: {
+            num: "CHAPTER 01",
+            title: "좀비의 탄생과 진화",
+            sub: "— 감염병 피플의 문화사",
+            body: `<p>부두교의 제의에 묶인 무력한 좀비에서부터 조지 로메로의 자본주의 비판적 언데드까지, 시대의 억압과 집단적 공포가 어떻게 생물학적 현상으로 구축되어 왔는지 추적합니다.</p>
+                   <p>여기에 실제 세부 서사나 연구 데이터를 채워 넣으시면 사이트 메인 위로 깔끔하게 펼쳐집니다.</p>`
+        }
+    };
+
+    function openChapterModal(chapterId) {
+        const modal = document.getElementById("chapterModal");
+        const modalBody = document.getElementById("modalBody");
+        const data = chapterTexts[chapterId];
+
+        if (data) {
+            modalBody.innerHTML = `
+                <div class="modal-hdr">
+                    <span>${data.num}</span>
+                    <h2>${data.title}</h2>
+                    <p style="color:#555; font-style:italic; margin:0; font-size:0.95rem;">${data.sub}</p>
+                </div>
+                <hr style="border:0; border-top:1px solid #222; margin-bottom:35px;">
+                <div class="modal-body">
+                    ${data.body}
+                </div>
+            `;
+            modal.classList.add("active");
+        }
+    }
+
+    function closeChapterModal() {
+        document.getElementById("chapterModal").classList.remove("active");
+    }
+
+    window.onclick = function(event) {
+        const chModal = document.getElementById("chapterModal");
+        if (event.target == chModal) { closeChapterModal(); }
+    }
+</script>
 </body>
 </html>

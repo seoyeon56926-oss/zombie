@@ -1036,3 +1036,17 @@ html, body {
     cursor: pointer;
     transition: opacity 1s ease;
 }
+/* 새로 적용할 인트로 스타일 */
+.intro-screen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('zombie1intro.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    z-index: 99999 !important;
+    cursor: pointer !important;
+    transition: opacity 1s ease !important;
+}
